@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <>
       <div className="w-full p-0 m-0 bg-black ">
-        <div className="max-w-screen-xl   mx-auto py-2  flex items-center	 justify-between ">
+        <div className="max-w-screen-xl   mx-auto py-3  flex items-center	 justify-between ">
           <div className="nleft items-center	flex">
             <img
               src="https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/63349803431f1562dccf1802_refokus%20logo.svg"
