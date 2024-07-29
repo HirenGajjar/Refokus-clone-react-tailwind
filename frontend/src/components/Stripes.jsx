@@ -30,7 +30,7 @@ function Stripes() {
   ];
   return (
     <>
-      <div className="flex items-center ">
+      <div className="flex items-center mb-32">
         {stripeData.map((elem, index) => (
           <Stripe val={elem} />
         ))}
