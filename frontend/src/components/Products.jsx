@@ -49,7 +49,7 @@ function Products() {
     <>
       <div className="w-full">
         {products.map((val, index) => (
-          <Product val={val} />
+          <Product val={val} key={index} />
         ))}
       </div>
     </>

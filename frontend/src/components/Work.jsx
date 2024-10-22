@@ -1,12 +1,13 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { motion } from "framer-motion";
 function Work() {
-  var images = [
+  const [images, setImages] = useState([
     {
       url: "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/634ef09178195ce0073e38f3_Refokus%20Tools-1.png",
       left: "50%",
       top: "50%",
-      isActive: true,
+      isActive: false,
     },
     {
       url: "https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/634ef0accfe1b3e66bc55462_Refokus%20Tools.png",
@@ -38,7 +39,43 @@ function Work() {
       top: "68%",
       isActive: false,
     },
-  ];
+  ]);
+  const { scrollYProgress } = useScroll();
+
+  scrollYProgress.on("change", (data) => {
+    const showImages = (arr) => {
+      setImages((prev) =>
+        prev.map((item, index) =>
+          arr.indexOf(index) === -1
+            ? { ...item, isActive: false }
+            : { ...item, isActive: true }
+        )
+      );
+    };
+    switch (Math.floor(data * 100)) {
+      case 2:
+        showImages([]);
+        break;
+      case 4:
+        showImages([0]);
+        break;
+      case 6:
+        showImages([0, 1]);
+        break;
+      case 8:
+        showImages([0, 1, 2]);
+        break;
+      case 10:
+        showImages([0, 1, 2, 3]);
+        break;
+      case 12:
+        showImages([0, 1, 2, 3, 4]);
+        break;
+      case 14:
+        showImages([0, 1, 2, 3, 4, 5]);
+        break;
+    }
+  });
   return (
     <>
       <div className="w-full select-none">
