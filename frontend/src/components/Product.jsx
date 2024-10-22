@@ -1,16 +1,21 @@
 import React from "react";
 import Button from "./Button";
 
-function Product({ val }) {
+function Product({ val, frameMover, index }) {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between py-20 ">
-        <h1 className="font-semibold text-6xl">{val.title}</h1>
-        <div className="py-4">
-          <p className="max-w-72 mb-8">{val.description}</p>
-          <div className="flex items-center gap-4">
-            {val.live && <Button title="Live" />}
-            {val.caseStudy && <Button title="Live" />}
+      <div className="w-full py-20 h-[23rem] text-white">
+        <div
+          onMouseEnter={() => frameMover(index)}
+          className="max-w-screen-xl mx-auto flex items-center justify-between"
+        >
+          <h1 className="text-6xl font-medium">{val.title}</h1>
+          <div className="dets w-1/3">
+            <p className="mb-10">{val.description}</p>
+            <div className="flex gap-2 items-center ">
+              {val.live && <Button title="Live Demo" />}
+              {val.caseStudy && <Button title="Case Study" />}
+            </div>
           </div>
         </div>
       </div>
